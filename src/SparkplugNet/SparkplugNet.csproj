@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net6.0;net7.0;net8.0;netstandard2.0</TargetFrameworks>
         <AssemblyName>SparkplugNet</AssemblyName>
         <RootNamespace>SparkplugNet</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,7 +19,7 @@
         <PackageReleaseNotes>Version 1.3.4.0 (2024-03-03): Removed Serilog from library, fixes https://github.com/SeppPenner/SparkplugNet/issues/74, Renamed events to not use "Async" as postfix andymore, reworked events to handle mutiple metrics at once (Fixes https://github.com/SeppPenner/SparkplugNet/issues/73).</PackageReleaseNotes>
         <PackageLicenseFile>License.txt</PackageLicenseFile>
         <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
+        <Nullable>annotations</Nullable>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <IncludeSymbols>true</IncludeSymbols>
@@ -41,6 +41,7 @@
         </PackageReference>
         <PackageReference Include="MQTTnet" Version="4.3.3.952" />
         <PackageReference Include="protobuf-net" Version="3.2.30" />
+        <PackageReference Include="System.Text.Json" Version="8.0.3" Condition=" '$(TargetFramework)' == 'netstandard2.0' " />
     </ItemGroup>
 
     <ItemGroup>
